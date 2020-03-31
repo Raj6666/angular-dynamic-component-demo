@@ -1,0 +1,99 @@
+<div class="creat-report-div">
+  <nz-modal class="creat-report-modal" (nzOnCancel)="closeModal()" [(nzVisible)]="isShowModal" nzMask="false">
+    <div class="report-div-top">
+      <span>{{headerName}}</span>
+    </div>
+    <div class="report-template-content">
+      <div class="report-template-div">
+        <img src="./assets/images/common/important.png">
+        <span>报告名称：</span>
+        <input class="width-height-common" nz-input [(ngModel)]="reportName" />
+      </div>
+      <div class="report-template-div">
+        <img src="./assets/images/common/important.png">
+        <span>使用模板：</span>
+        <nz-select [nzDisabled]="disableTemplate" class="width-height-common" [(ngModel)]="usedTemplate">
+          <nz-option nzLabel="模板1" nzValue="模板1"></nz-option>
+          <nz-option nzLabel="模板2" nzValue="模板2"></nz-option>
+          <nz-option nzLabel="模板3" nzValue="模板3"></nz-option>
+          <nz-option nzLabel="模板4" nzValue="模板4"></nz-option>
+        </nz-select>
+      </div>
+      <div class="report-template-div">
+        <img src="./assets/images/common/important.png">
+        <span>报告类型：</span>
+        <nz-select class="width-height-common" [(ngModel)]="reportType" (ngModelChange)="changeReportType()">
+          <nz-option nzLabel="自定义" nzValue="自定义"></nz-option>
+          <nz-option nzLabel="周报" nzValue="周报"></nz-option>
+          <nz-option nzLabel="月报" nzValue="月报"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+    <!-- 只有报告类型是自定义时才显示 -->
+    <div *ngIf="reportType==='自定义'" class="template-div">
+      <div class="template-table-list-content">
+        <span class="content-top">模板表格列表-时间设置</span>
+        <div class="template-setting">
+          <div class="template-setting-div">
+            <span>表格统一数据日期：</span>
+            <nz-select class="table-common-select" [(ngModel)]="formUniformDate">
+              <nz-option nzLabel="是" nzValue="是"></nz-option>
+              <nz-option nzLabel="否" nzValue="否"></nz-option>
+            </nz-select>
+          </div>
+          <div class="template-setting-div">
+            <span>统一数据开始日期：</span>
+            <nz-date-picker [nzDisabled]="formUniformDate==='否'" (nzOnOpenChange)="openStartOrEndDatePicker()"
+              [nzSize]="'small'" nzFormat="yyyy-MM-dd" [(ngModel)]="unifiedStartDate" nzPlaceHolder="年/月/日">
+            </nz-date-picker>
+          </div>
+          <div class="template-setting-div">
+            <span>统一数据结束日期：</span>
+            <nz-date-picker [nzDisabled]="formUniformDate==='否'" (nzOnOpenChange)="openStartOrEndDatePicker()"
+              [nzSize]="'small'" nzFormat="yyyy-MM-dd" [(ngModel)]="unifiedEndDate" nzPlaceHolder="年/月/日">
+            </nz-date-picker>
+          </div>
+        </div>
+        <div class="template-table">
+          <nz-table #NzTable nzShowSort [nzData]="templateTableData" [nzShowPagination]="false" [nzBordered]="true"
+            [nzSize]="'small'">
+            <thead>
+              <tr>
+                <th nzWidth="0.5rem">序号</th>
+                <th nzWidth="1rem">表格名称</th>
+                <th nzWidth="2rem">数据开始日期</th>
+                <th nzWidth="2rem">数据结束日期</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let index of templateTableData,let key = index">
+                <td><span>{{key+1}}</span></td>
+                <td title="{{index.tableName}}"><span>{{index.tableName}}</span></td>
+                <td>
+                  <nz-date-picker [nzDisabled]="formUniformDate==='是'" [nzSize]="'small'" nzFormat="yyyy-MM-dd"
+                    [(ngModel)]="index.dataStartDate" nzPlaceHolder="年/月/日">
+                  </nz-date-picker>
+                </td>
+                <td>
+                  <nz-date-picker [nzDisabled]="formUniformDate==='是'" [nzSize]="'small'" nzFormat="yyyy-MM-dd"
+                    [(ngModel)]="index.dataEndDate" nzPlaceHolder="年/月/日">
+                  </nz-date-picker>
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </div>
+    </div>
+    <!-- 只有报告类型是周报时才显示 -->
+    <div *ngIf="reportType!=='自定义'" class="template-div">
+      <div class="template-table-list-content">
+        <span class="content-top">{{monthYearHeaderText}}</span>
+        <div class="content-text">
+          <p>{{monthYearFooterText.firstRow}}</p>
+          <p>{{monthYearFooterText.secondRow}}</p>
+        </div>
+      </div>
+    </div>
+  </nz-modal>
+</div>

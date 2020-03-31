@@ -1,0 +1,41 @@
+<div class="report-search-content">
+  <p>报告查询</p>
+  <div class="search-content">
+    <div class="search-div">
+      <span>创建时间：</span>
+      <nz-date-picker (nzOnOpenChange)="openStartOrEndDatePicker()" [nzSize]="'small'" nzFormat="yyyy-MM-dd"
+        [(ngModel)]="startValue" nzPlaceHolder="年/月/日">
+      </nz-date-picker>
+      <span class="span-to">至</span>
+      <nz-date-picker (nzOnOpenChange)="openStartOrEndDatePicker()" [nzSize]="'small'" nzFormat="yyyy-MM-dd"
+        [(ngModel)]="endValue" nzPlaceHolder="年/月/日">
+      </nz-date-picker>
+    </div>
+    <div class="search-div">
+      <span>报告名称：</span>
+      <div>
+        <input class="width-height-common" nz-input placeholder="报告名称" [(ngModel)]="reportName" />
+      </div>
+    </div>
+    <div class="search-div">
+      <span>报告类型：</span>
+      <nz-select class="width-height-common" [(ngModel)]="reportType">
+        <nz-option nzLabel="全部" nzValue="全部"></nz-option>
+        <nz-option nzLabel="自定义" nzValue="自定义"></nz-option>
+        <nz-option nzLabel="周报" nzValue="周报"></nz-option>
+        <nz-option nzLabel="月报" nzValue="月报"></nz-option>
+      </nz-select>
+    </div>
+    <div class="search-div">
+      <span>报告状态：</span>
+      <nz-select class="width-height-common" [(ngModel)]="reportStatus">
+        <nz-option nzLabel="全部" nzValue="全部"></nz-option>
+        <nz-option nzLabel="已生成" nzValue="已生成"></nz-option>
+        <nz-option nzLabel="待生成" nzValue="待生成"></nz-option>
+      </nz-select>
+    </div>
+    <div class="search-div">
+      <button nz-button nzType="primary">查询</button>
+    </div>
+  </div>
+</div>

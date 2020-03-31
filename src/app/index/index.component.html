@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="header">
+    <!-- 顶部logo -->
+    <div class="logo-img">
+      <img src="./assets/images/index/logo.png">
+    </div>
+    <!-- 顶部菜单 -->
+    <div class="headMenu">
+      <ul nz-menu [nzMode]="'horizontal'">
+        <li nz-submenu (click)="changeHeadMenuStyle()" class="headMenu-div">
+          <span title>
+            <div>
+              <span>分析支撑</span>
+            </div>
+          </span>
+          <ul class="common-background">
+            <li nz-menu-group>
+              <ul class="common-background">
+                <li class="report-automation" nz-menu-item [nzSelected]="childModule === '报告自动化'"
+                  (click)="changeChildModuleStyle('报告自动化')" routerLink="/index/home">报告自动化</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

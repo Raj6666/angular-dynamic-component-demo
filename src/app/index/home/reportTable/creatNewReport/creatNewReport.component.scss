@@ -1,0 +1,115 @@
+.creat-report-div {
+  position: relative;
+  margin: 0 auto;
+  width: 75%;
+  z-index: 2;
+  background: #fff;
+}
+
+.creat-report-modal {
+
+  .width-height-common {
+    width: 1.5rem;
+    height: 0.32rem
+  }
+
+  .report-div-top {
+    border-bottom: 0.01rem solid #e8e8e8;
+    padding: 0.1rem;
+  }
+
+  .report-template-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.1rem 0.2rem;
+
+    .report-template-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 0.1rem;
+        margin-right: 0.05rem;
+      }
+    }
+
+    .report-template-div:last-child {
+      margin-top: 0.1rem
+    }
+  }
+
+  .template-div {
+    background-color: #e8e8e8;
+    padding: 0.1rem;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .template-table-list-content {
+      width: 100%;
+      border-top: 0.01rem solid #e8e8e8;
+      background-color: #fff;
+
+      .content-top {
+        padding: 0.1rem;
+        width: 100%;
+        font-weight: 600;
+        border-bottom: 0.01rem solid #e8e8e8;
+        display: inline-block;
+      }
+
+      .template-setting {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.1rem;
+
+        .template-setting-div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .table-common-select {
+            width: 1.1rem;
+            height: 0.32rem
+          }
+        }
+
+        .template-setting-div:last-child {
+          margin-top: 0.1rem;
+        }
+      }
+    }
+
+    .content-text {
+      padding: 0.1rem;
+      // font-size: 0.1rem;
+      color: red;
+    }
+  }
+
+}
+
+// modal样式------------------------------------
+::ng-deep .creat-report-modal .ant-modal-body {
+  padding: 0;
+}
+
+::ng-deep .creat-report-modal .ant-modal-close-x {
+  height: 0.4rem;
+  line-height: 0.4rem;
+}
+
+
+// 时间控件样式-------------------------------
+::ng-deep .creat-report-modal .ant-calendar-picker-input.ant-input-sm {
+  width: 1.1rem;
+  height: 0.32rem;
+}

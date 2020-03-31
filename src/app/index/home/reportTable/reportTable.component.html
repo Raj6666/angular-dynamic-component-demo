@@ -1,0 +1,78 @@
+<div class="report-table-content">
+  <div class="reportList-div">
+    <span class="floatLeft-div">报告列表</span>
+    <span class="floatRight-div">
+      删除
+    </span>
+    <span class="floatRight-div" (click)="showCreatReportDiv()">
+      创建新报告
+    </span>
+  </div>
+  <div>
+    <!-- 表格 -->
+    <div id="report-table" class="reportTable">
+      <nz-table #NzTable nzShowSort [nzData]="reportData" [nzShowPagination]="false" [nzBordered]="true"
+        [nzSize]="'small'">
+        <thead>
+          <tr>
+            <th nzWidth="0.5rem" nzShowCheckbox [(nzChecked)]="isAllReportDataChecked"
+              (nzCheckedChange)="checkReportTableAll($event)">
+            </th>
+            <th nzWidth="0.5rem">序号</th>
+            <th nzWidth="1.5rem">报告名称</th>
+            <th nzWidth="1.3rem">使用模板</th>
+            <th nzWidth="1.3rem">报告类型</th>
+            <th nzWidth="1.5rem">数据开始时间</th>
+            <th nzWidth="1.5rem">数据结束时间</th>
+            <th nzWidth="2rem">创建时间</th>
+            <th nzWidth="2rem">报告预计生成时间</th>
+            <th nzWidth="1.3rem">报告状态</th>
+            <th nzWidth="2.5rem">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let index of reportData,let key = index">
+            <td nzShowCheckbox [(nzChecked)]="index.checked">
+            </td>
+            <td><span>{{key+1}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}">
+              <span>{{index.startTime}}</span>
+            </td>
+            <td title="{{index.startTime}}">
+              <span>{{index.startTime}}</span>
+            </td>
+            <td class="table-operating">
+              <span (click)="copyReport()">报告复制</span>
+              <span>下载报告</span>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <div class="pagination">
+      <ng-template #template>
+        共{{total}}条数据
+      </ng-template>
+      <nz-pagination [nzShowQuickJumper]="false" [nzPageIndex]="pageNum" [nzTotal]="total" nzShowSizeChanger="true"
+        [nzPageSize]="pageSize" (nzPageSizeChange)="pageSizeChange($event)" (nzPageIndexChange)="pageNumChange($event)"
+        [nzShowTotal]="template">
+      </nz-pagination>
+    </div>
+  </div>
+  <!-- 创建新报告 -->
+  <div>
+    <app-creat-new-report [disableTemplate]="isDisableTemplate" [headerName]="modalHeaderName"
+      [isShowReportDiv]="showCreatReportModal" (outer)="outerIsCloseModal($event)">
+    </app-creat-new-report>
+  </div>
+  <!-- 删除弹框 -->
+  <div>
+    <!-- <app-delete-modal [isShowDeleteDiv]="showDeleteModal" (outer)="outerIsCloseDeleteModal($event)"></app-delete-modal> -->
+  </div>
+</div>

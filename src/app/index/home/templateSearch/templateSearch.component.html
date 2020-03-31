@@ -1,0 +1,30 @@
+<div class="template-search-content">
+  <p>模板查询</p>
+  <div class="search-content">
+    <div class="search-div">
+      <span>创建时间：</span>
+      <nz-date-picker (nzOnOpenChange)="openStartOrEndDatePicker()" [nzSize]="'small'" nzFormat="yyyy-MM-dd"
+        [(ngModel)]="startValue" nzPlaceHolder="年/月/日">
+      </nz-date-picker>
+      <span class="span-to">至</span>
+      <nz-date-picker (nzOnOpenChange)="openStartOrEndDatePicker()" [nzSize]="'small'" nzFormat="yyyy-MM-dd"
+        [(ngModel)]="endValue" nzPlaceHolder="年/月/日">
+      </nz-date-picker>
+    </div>
+    <div class="search-div">
+      <span>模板名称：</span>
+      <div>
+        <input nz-input placeholder="模板名称" [(ngModel)]="templateName" />
+      </div>
+    </div>
+    <div class="search-div">
+      <span>模板描述：</span>
+      <div>
+        <input nz-input placeholder="模板描述" [(ngModel)]="templateDescription" />
+      </div>
+    </div>
+    <div class="search-div">
+      <button nz-button nzType="primary">查询</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="template-table-content">
+  <div class="templateList-div">
+    <span class="floatLeft-div">模板管理列表</span>
+    <span class="floatRight-div">
+      删除
+    </span>
+    <span class="floatRight-div">
+      创建新模板
+    </span>
+  </div>
+  <div>
+    <!-- 表格 -->
+    <div id="template-table" class="templateTable">
+      <nz-table #NzTable nzShowSort [nzData]="templateData" [nzShowPagination]="false" [nzBordered]="true"
+        [nzSize]="'small'">
+        <thead>
+          <tr>
+            <th nzWidth="0.5rem" nzShowCheckbox [(nzChecked)]="isAllTemplateDataChecked"
+              (nzCheckedChange)="checkTemplateTableAll($event)">
+            </th>
+            <th nzWidth="0.5rem">序号</th>
+            <th nzWidth="1.5rem">模板名称</th>
+            <th nzWidth="2rem">模板描述</th>
+            <th nzWidth="1.3rem">维度数量</th>
+            <th nzWidth="1.3rem">表格数量</th>
+            <th nzWidth="1.3rem">图表数量</th>
+            <th nzWidth="2rem">创建时间</th>
+            <th nzWidth="2.5rem">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let index of templateData,let key = index">
+            <td nzShowCheckbox [(nzChecked)]="index.checked">
+            </td>
+            <td><span>{{key+1}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}"><span>{{index.startTime}}</span></td>
+            <td title="{{index.startTime}}">
+              <span>{{index.startTime}}</span>
+            </td>
+            <td title="{{index.startTime}}">
+              <span>{{index.startTime}}</span>
+            </td>
+            <td class="table-operating">
+              <span (click)="showTemplateCopyDiv(index)">模板复制</span>
+              <span>模板查看</span>
+              <span>模板编辑</span>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <div class="pagination">
+      <ng-template #template>
+        共{{total}}条数据
+      </ng-template>
+      <nz-pagination [nzShowQuickJumper]="false" [nzPageIndex]="pageNum" [nzTotal]="total" nzShowSizeChanger="true"
+        [nzPageSize]="pageSize" (nzPageSizeChange)="pageSizeChange($event)" (nzPageIndexChange)="pageNumChange($event)"
+        [nzShowTotal]="template">
+      </nz-pagination>
+    </div>
+  </div>
+  <!-- 模板复制 -->
+  <div>
+    <app-template-copy [isShowTemplateCopyDiv]="showTemplateCopyModal" (outer)="outerIsCloseTemplateCopyModal($event)">
+    </app-template-copy>
+  </div>
+</div>

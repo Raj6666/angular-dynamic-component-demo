@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+// ------------------表格样式--------------------------
+// 表格内容的外边距
+.ant-table-small>.ant-table-content>.ant-table-body {
+  margin: 0 !important;
+}
+
+// 表格列头样式
+.ant-table-small>.ant-table-content>.ant-table-body>table>.ant-table-thead>tr>th {
+  text-align: center;
+  // font-size: 0.12rem;
+}
+
+// 表格内容样式
+.ant-table-small>.ant-table-content>.ant-table-body>table>.ant-table-tbody>tr>td {
+  text-align: center;
+  // font-size: 0.12rem;
+}
+
+// ---------------------------------------------------------

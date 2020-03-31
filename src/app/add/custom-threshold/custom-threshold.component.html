@@ -1,0 +1,33 @@
+<div style="width:100%;" class="newComponent">
+  <div style="flex-direction: row;display: inline-flex;margin-right: 5px;">
+    <div>
+      <i class="deleteButton" style="font-size: 20px;cursor: pointer;" (click)="deleteNewComponent($event)" nz-icon type="minus-square"
+        nzTheme="outline"></i>
+    </div>
+  </div>
+  <div style="flex-direction: row;display: inline-flex;margin-right: 5px;">
+    <nz-select style="width: 80px;" [(ngModel)]="selectedDataSource">
+      <nz-option nzValue="KPI" nzLabel="KPI"></nz-option>
+      <!-- <nz-option nzValue="告警状态" nzLabel="告警状态"></nz-option> -->
+    </nz-select>
+  </div>
+  <!-- <div class="select-div" style="flex-direction: row;display: inline-flex;margin-right: 5px;">
+    <nz-select style="width: 180px;" [compareWith]="compareFn" [(ngModel)]="selectedIndicatorName"
+      name="selectedIndicatorName">
+      <nz-option style="overflow: unset" *ngFor="let item of indicatorsList" [nzValue]="item" [nzLabel]="item.label">
+      </nz-option>
+    </nz-select>
+  </div> -->
+  <div style="flex-direction: row;display: inline-flex;margin-right: 5px;">
+    <nz-select style="width: 70px;" [(ngModel)]="selectedSymbolValue">
+      <nz-option nzValue="<" nzLabel="<"></nz-option>
+      <nz-option nzValue="<=" nzLabel="<="></nz-option>
+      <nz-option nzValue="=" nzLabel="="></nz-option>
+      <nz-option nzValue=">" nzLabel=">"></nz-option>
+      <nz-option nzValue=">=" nzLabel=">="></nz-option>
+    </nz-select>
+  </div>
+  <div style="flex-direction: row;display: inline-flex;">
+    <input (keyup)="limitNumber()" style="width:80px;" nz-input placeholder="" [(ngModel)]="thresholdValue" />
+  </div>
+</div>

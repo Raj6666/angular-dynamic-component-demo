@@ -1,0 +1,19 @@
+<div class="modalDiv" style="margin-top:30px;height:100%">
+    <!-- <div class="modalFloatText">自定义阈值</div> -->
+    <!-- <div style="margin:30px 0 0 10px;">
+      <span style="margin-left:8%;text-align:center;width:12%;display: inline-block">数据源</span>
+      <span style="margin-left:6%;text-align:center;width:35%;display: inline-block">指标名称</span>
+      <span style="margin-left:3%;text-align:center;width:15%;display: inline-block">比较</span>
+      <span style="margin-left:2.5%;text-align:center;width:15%;display: inline-block">阈值</span>
+    </div> -->
+    <div id="addNewDiv" style="margin-left: 10px;" class="addDiv">
+      <!-- <app-custom-threshold [indicatorList]="indicatorsList"></app-custom-threshold> -->
+      <ng-template #NewContainer></ng-template>
+      <div>
+        <i style="font-size: 20px;cursor: pointer;" (click)="addNewComponent()" nz-icon type="plus-square"
+          nzTheme="outline"></i>
+        <span [hidden]="hiddenLimitText" style="margin-left: 2%;color:#FF9933">最大支持12条</span>
+      </div>
+    </div>
+    <button (click)="saveData()">保存</button>
+  </div>

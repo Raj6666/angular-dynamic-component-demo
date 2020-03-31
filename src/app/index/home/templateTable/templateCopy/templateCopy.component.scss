@@ -1,0 +1,56 @@
+.template-copy-div {
+  position: relative;
+  margin: 0 auto;
+  width: 15%;
+  z-index: 2;
+  background: #fff;
+}
+
+.template-copy-modal {
+  .template-div-top {
+    border-bottom: 0.01rem solid #e8e8e8;
+    padding: 0.1rem;
+  }
+
+  .template-content {
+    padding: 0.1rem;
+
+    .template-content-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        width: 1rem;
+        text-align: right;
+      }
+
+      input {
+        width: 1.5rem;
+        height: 0.32rem;
+      }
+    }
+
+    .template-content-div:nth-child(2),
+    .template-content-div:nth-child(3) {
+      margin-top: 0.1rem;
+    }
+  }
+}
+
+
+// modal样式------------------------------------
+::ng-deep .template-copy-modal .ant-modal {
+  width: 25% !important;
+  top: 1.5rem !important;
+}
+
+::ng-deep .template-copy-modal .ant-modal-body {
+  padding: 0;
+}
+
+::ng-deep .template-copy-modal .ant-modal-close-x {
+  height: 0.4rem;
+  line-height: 0.4rem;
+}

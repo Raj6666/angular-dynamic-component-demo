@@ -1,0 +1,21 @@
+<div class="template-copy-div">
+  <nz-modal class="template-copy-modal" (nzOnCancel)="closeModal()" [(nzVisible)]="isShowModal" nzMask="false">
+    <div class="template-div-top">
+      <span>提示：复制模板</span>
+    </div>
+    <div class="template-content">
+      <div class="template-content-div">
+        <span>使用模板：</span>
+        <input nz-input [disabled]="true" [(ngModel)]="usedTemplate" />
+      </div>
+      <div class="template-content-div">
+        <span>新模板名称：</span>
+        <input nz-input [(ngModel)]="templateName" />
+      </div>
+      <div class="template-content-div">
+        <span>新模板描述：</span>
+        <input nz-input [(ngModel)]="templateDescription" />
+      </div>
+    </div>
+  </nz-modal>
+</div>
